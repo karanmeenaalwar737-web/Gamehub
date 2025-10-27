@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Magic Scratch - GameCoinHub</title>
+<meta name="description" content="GameCoinHub - Play casual browser games for fun. AdSense-ready.">
+<style>
+:root{--bg:#f8fafc;--card:#ffffff;--accent:#0ea5e9;--muted:#475569;--radius:12px;--max:980px;font-family:Inter,system-ui,Arial;}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f8fbff,#eaf6ff);color:#0f172a}
+.container{max-width:var(--max);margin:0 auto;padding:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:12px}
+.mark{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:800}
+nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-weight:700}
+.main-grid{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:18px}
+.card{background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 8px 20px rgba(2,6,23,0.06);border:1px solid rgba(2,6,23,0.04)}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:white;text-decoration:none;font-weight:800}
+.footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:40px}
+@media(max-width:900px){.main-grid{grid-template-columns:1fr}.nav-right{display:none}}
+</style>
+</head><body><div class="container"><header><div class="logo"><div class="mark">GC</div><div><div style="font-weight:900">GameCoinHub</div><div style="font-size:12px;color:var(--muted)">Play casual games — Ads support the site</div></div></div><nav class="nav-right"><a href="index.html">Home</a><a href="spin.html">Lucky Spin</a><a href="scratch.html">Magic Scratch</a><a href="tictactoe.html">Tic Tac Toe</a><a href="memory.html">Memory Flip</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header>
+<main style="margin-top:18px">
+  <section class="card" style="text-align:center">
+    <h2>🎯 Magic Scratch</h2>
+    <p style="color:var(--muted)">Scratch to reveal a prize — for fun only.</p>
+    <canvas id="scr" width="320" height="180" style="border-radius:12px;display:block;margin:12px auto;border:1px solid rgba(2,6,23,0.05)"></canvas>
+    <p id="scrRes" style="color:var(--muted)"></p>
+    <p style="margin-top:12px"><a href="index.html">⬅ Back to Home</a></p>
+  </section>
+</main>
+<script>
+const canvas=document.getElementById('scr');const ctx=canvas.getContext('2d');const prizes=['10 Coins','50 Coins','100 Coins','Try Again','Bonus Spin'];const prize=prizes[Math.floor(Math.random()*prizes.length)];
+ctx.fillStyle='#999';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#fff';ctx.font='18px Inter';ctx.fillText('Scratch Here',110,95);let revealed=false;
+canvas.addEventListener('mousemove',e=>{if(e.buttons!==1)return;const r=canvas.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;ctx.clearRect(x-12,y-12,24,24);if(!revealed && Math.random()>0.985){document.getElementById('scrRes').innerText='🎉 You won '+prize;revealed=true}});
+</script>
+<footer class="footer">© 2025 GameCoinHub | All Rights Reserved</footer></div></body></html>
