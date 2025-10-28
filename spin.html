@@ -41,7 +41,28 @@ document.getElementById('spinBtn').onclick=()=>{
   document.getElementById('spinBtn').disabled=true;
   setTimeout(()=>{
     document.getElementById('spinRes').innerText='🎉 You won '+prizes[idx]+'!';
-    document.getElementById('spinBtn').disabled=false;
+    setTimeout(() => {
+  document.getElementById('spinRes').innerText = '🎉 You won ' + prizes[idx] + '!';
+  document.getElementById('spinBtn').disabled = false;
+
+  // ===== Ad Show Logic =====
+  const adDiv = document.createElement('div');
+  // ===== Ad Show Logic =====
+const adDiv = document.createElement('div');
+adDiv.style.textAlign = 'center';
+adDiv.style.margin = '16px auto';
+adDiv.innerHTML =
+  adDiv.innerHTML =
+  setTimeout(() => {
+  document.body.appendChild(adDiv);
+}, 2000); // 2 second ke baad ad show hoga
+  "<script type='text/javascript' src='https://pl27943789.effectivegatecpm.com/e3/46/14/e3461468bc445e28e2423247bde14a91.js'></script>";
+// ===== End Ad Logic =====
+  document.body.appendChild(adDiv);
+  // ===== End Ad Logic =====
+
+}, 2000); // 2 second baad result + ad dono show honge
+}, 3000);
     const m=document.createElement('div');m.style.position='fixed';m.style.inset=0;m.style.display='flex';m.style.alignItems='center';m.style.justifyContent='center';m.style.background='rgba(2,6,23,0.6)';m.style.zIndex=9999;const b=document.createElement('div');b.style.background='white';b.style.color='#071029';b.style.padding='18px';b.style.borderRadius='10px';b.innerHTML='<strong>Sponsored</strong><p style="color:#334155">This space reserved for a short ad. Replace with AdSense after approval.</p><button id="closeAd" style="padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:white;border:none;font-weight:800">Close</button>';m.appendChild(b);document.body.appendChild(m);document.getElementById('closeAd').onclick=()=>m.remove();
   },6200);
 };
